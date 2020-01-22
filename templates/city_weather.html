@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>City weather</h1>
+<p>City name: {{ city }}</p>
+
+
+<p>{{ today_day }} --- {{ today_temp }} C</p>
+
+
+{% for day in weather_ready %}
+    <p>{{ day.dt_txt }} --- {{ day.main.temp }} C</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<a href="{% url 'added_city_view' city %}">Add to favourites</a>
+{%  endif %}
+{% endblock content %}

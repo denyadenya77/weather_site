@@ -1,0 +1,9 @@
+.idea/*
+new_venv/*
+venv/*
+users/__pycache__/*
+users/migrations/__pycache__/*
+weather/__pycache__/*
+weather/migrations/__pycache__/*
+weather_site/__pycache__/*
+

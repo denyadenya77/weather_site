@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>HomePage</h1>
+
+<form action="{% url 'search_result_page' %}" method="get">
+  <input name="q" type="text" placeholder="Search city...">
+</form>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if not error %}
+        <h1>City weather</h1>
+        <p>City name: {{ city }}</p>
+
+
+        <p>{{ today_day }} --- {{ today_temp }} C</p>
+
+
+        {% for day in weather_ready %}
+            <p>{{ day.dt_txt }} --- {{ day.main.temp }} C</p>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            {% if city_in_favourites  %}
+                <a href="{% url 'delete_city_view' city %}">Remove from favourites</a>
+            {% else %}
+                <a href="{% url 'added_city_view' city %}">Add to favourites</a>
+            {% endif %}
+        {%  endif %}
+    {% else %}
+        <h1>{{ error }}</h1>
+    {% endif %}
+
+{% endblock content %}

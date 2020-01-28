@@ -1,4 +1,3 @@
-from .models import UserCities
 import requests
 import datetime
 from datetime import datetime
@@ -21,21 +20,25 @@ class Weather:
             raise APIError()
         return res.json()
 
-    def get_current_weather(self, current_user):
+    def get_current_weather(self, user_cities_list):
 
-        user_cities_list = UserCities.objects.filter(user=current_user)
+        url_type = 'current_weather'
 
         context = {
             'city_list': []
         }
 
         for city in user_cities_list:
-            url = f'{self.base_url}/data/2.5/weather?q={city}&appid={self.app_id}&units=metric'
+            url = self.create_url(city, url_type)
             weather = self.send_request(url)
 
             city_dict = {
                 'name': city.city,
-                'temp': weather['main']['temp']
+                'temp': weather['main']['temp'],
+                'wind': weather['wind']['speed'],
+                'description': weather['weather'][0]['description'],
+                'sunrise': datetime.utcfromtimestamp(int(weather['sys']['sunrise'])).strftime('%H:%M:%S'),
+                'sunset': datetime.utcfromtimestamp(int(weather['sys']['sunrise'])).strftime('%H:%M:%S'),
             }
 
             context['city_list'].append(city_dict)
@@ -44,7 +47,9 @@ class Weather:
 
     def get_five_days_weather(self, city):
 
-        url = f'{self.base_url}/data/2.5/forecast?q={city}&appid={self.app_id}&units=metric'
+        url_type = 'five_days_weather'
+
+        url = self.create_url(city, url_type)
 
         weather = self.send_request(url)
 
@@ -77,3 +82,13 @@ class Weather:
         }
 
         return context
+
+    def create_url(self, city, url_type):
+        if url_type is 'current_weather':
+            url = f'{self.base_url}/data/2.5/weather?q={city}&appid={self.app_id}&units=metric'
+            return url
+        elif url_type is 'five_days_weather':
+            url = f'{self.base_url}/data/2.5/forecast?q={city}&appid={self.app_id}&units=metric'
+            return url
+
+

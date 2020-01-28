@@ -10,7 +10,8 @@
 
 
         {% for day in weather_ready %}
-            <p>{{ day.dt_txt }} --- {{ day.main.temp }} C</p>
+            <p>Date: {{ day.dt_txt }} --- {{ day.main.temp }} C</p>
+            <p></p>
         {% endfor %}
 
         {% if user.is_authenticated %}

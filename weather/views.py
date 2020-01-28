@@ -26,15 +26,8 @@ class CityWeatherDetailView(TemplateView):
 
     template_name = 'city_weater_class_based.html'
 
-    def user_check(self):
-        if self.request.user.is_authenticated:
-            current_user = self.request.user
-        else:
-            current_user = None
-        return current_user
-
     def city_in_favourites(self, current_user, cityname):
-        if current_user:
+        if current_user.is_authenticated:
             cities = current_user.usercities_set.all()
             city_in_favourites = cities.filter(city__iexact=cityname).exists()
             return city_in_favourites
@@ -53,7 +46,7 @@ class CityWeatherDetailView(TemplateView):
                 'error': 'APIError'
             }
         else:
-            current_user = self.user_check()
+            current_user = self.request.user
             context['city_in_favourites'] = self.city_in_favourites(current_user, city)
 
         return context
@@ -79,16 +72,13 @@ class UserCitiesView(LoginRequiredMixin, TemplateView):
 
     template_name = 'user_cities_view.html'
 
-    def user_check(self):
-        current_user = self.request.user
-        return current_user
-
     def get_context_data(self, *args, **kwargs):
         weather = Weather()
-        current_user = self.user_check()
+        current_user = self.request.user
+        user_cities_list = UserCities.objects.filter(user=current_user)
 
         try:
-            context = weather.get_current_weather(current_user)
+            context = weather.get_current_weather(user_cities_list)
         except APIError:
             context = {
                 'error': 'APIError'

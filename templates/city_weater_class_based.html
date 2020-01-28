@@ -3,15 +3,18 @@
 {% block content %}
     {% if not error %}
         <h1>City weather</h1>
-        <p>City name: {{ city }}</p>
+        <h2>City name: {{ city }}</h2>
 
-
-        <p>{{ today_day }} --- {{ today_temp }} C</p>
-
+        <h3>Date: {{ today_day }}</h3>
+        <p>Temperature: {{ today_temp }}°</p>
+        <p>Wind speed: {{ current_wind }} mps</p>
+        <p>Description: {{ current_description }}</p>
 
         {% for day in weather_ready %}
-            <p>Date: {{ day.dt_txt }} --- {{ day.main.temp }} C</p>
-            <p></p>
+            <h3>Date: {{ day.dt_txt }}</h3>
+            <p>Temperature: {{ day.main.temp }}°</p>
+            <p>Wind speed: {{ day.wind.speed }} mps</p>
+            <p>Description: : {{ day.weather.0.description }}</p>
         {% endfor %}
 
         {% if user.is_authenticated %}

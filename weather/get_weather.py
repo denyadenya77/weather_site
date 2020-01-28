@@ -37,8 +37,6 @@ class Weather:
                 'temp': weather['main']['temp'],
                 'wind': weather['wind']['speed'],
                 'description': weather['weather'][0]['description'],
-                'sunrise': datetime.utcfromtimestamp(int(weather['sys']['sunrise'])).strftime('%H:%M:%S'),
-                'sunset': datetime.utcfromtimestamp(int(weather['sys']['sunrise'])).strftime('%H:%M:%S'),
             }
 
             context['city_list'].append(city_dict)
@@ -62,10 +60,12 @@ class Weather:
 
         # air temperature for today
         current_weather = weather['list'][0]['main']['temp']
+        current_wind = weather['list'][0]['wind']['speed']
+        current_description = weather['list'][0]['weather'][0]['description']
 
         weather_ready = []
 
-        for day in five_days_list:
+        for day in five_days_list[1:]:
 
             date = day['dt_txt'][8:10]
             time = day['dt_txt'][11:13]
@@ -78,6 +78,8 @@ class Weather:
             'city': city,
             'today_day': date_to_view,
             'today_temp': current_weather,
+            'current_wind': current_wind,
+            'current_description': current_description,
             'weather_ready': weather_ready,
         }
 

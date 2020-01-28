@@ -6,11 +6,9 @@
           <h2>
               <a href="{% url 'city_weather_class_based' city.name %}"> {{ city.name }} </a>
           </h2>
-          <p>Temperature: {{ city.temp }}</p>
-              <p>Wind speed: {{ city.wind }}</p>
+          <p>Temperature: {{ city.temp }}°</p>
+              <p>Wind speed: {{ city.wind }} mps</p>
               <p>Description: {{ city.description }}</p>
-              <p>Sunrise: {{ city.sunrise }}</p>
-              <p>Sunset: {{ city.sunset }}</p>
           <p></p>
         </div>
     {% endfor %}

@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for city in city_list %}
-        <div>
-          <h2>
-              <a href="{% url 'city_weather_class_based' city.name %}"> {{ city.name }} </a>
-          </h2>
-          <p>Temperature: {{ city.temp }}°</p>
-              <p>Wind speed: {{ city.wind }} mps</p>
-              <p>Description: {{ city.description }}</p>
-          <p></p>
-        </div>
-    {% endfor %}
+    <div class="wrapper">
+        {% for city in city_list %}
+            <div class="data">
+                <div class="best">
+                    <a class="best_a" href="{% url 'city_weather_class_based' city.name %}"> {{ city.name }} </a>
+                </div>
+                <p class="topic">Temperature: {{ city.temp }}°</p>
+                <p class="topic">Wind speed: {{ city.wind }} mps</p>
+                <p class="topic">Description: {{ city.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

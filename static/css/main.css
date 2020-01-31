@@ -1,0 +1,189 @@
+/* common */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f7f5ed;
+  color: #333333;
+
+}
+* {
+  box-sizing: border-box;
+}
+.wrapper {
+  max-width: 800px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+header {
+  background: #4f4f4f;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.form input {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* links */
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.a,
+.city a {
+  color: #fff;
+}
+a.fav {
+  text-transform: uppercase;
+  text-align: right;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.city a {
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 15px;
+}
+.best_a {
+  color: #000;
+  font-size: 20px;
+}
+.out {
+  text-align: center;
+}
+.sign {
+  padding-top: 15px;
+}
+a:hover {
+  color: #ebc700;
+}
+
+/* titles */
+.h1, .h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.h1 {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+.h2 {
+  font-size: 24px;
+  padding-bottom: 15px;
+}
+.aut .h1,
+.aut .h2 {
+  color: #000;
+  text-align: center;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+/* blocks */
+.city {
+  text-align: center;
+}
+.search {
+  margin-top: 100px;
+}
+.data {
+  background-color: #e2e4d2;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.date {
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.topic {
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: #000;
+}
+.favourite {
+  padding-bottom: 10px;
+  text-align: right;
+}
+.best {
+  padding-bottom: 15px;
+}
+.status .fav {
+  font-size: 30px;
+  text-align: center;
+}
+.end {
+  text-align: right;
+  margin-top: 50px;
+}
+
+/* form */
+.content-section {
+  margin-top: 20px;
+}
+.aut {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin: 0 auto;
+  max-width: 500px;
+}
+.aut input {
+  width: 100%;
+}
+.form-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn {
+  width: 100%;
+  color: white;
+  background: #00489b;
+  text-transform: uppercase;
+  padding: 15px 0;
+  font-size: 18px;
+  margin: 0 auto 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* from django */
+.form-group {
+  padding: 12px 0;
+  font-weight: bold;
+  font-size: 17px;
+}
+.asteriskField {
+  color: red;
+  padding-left: 3px;
+}
+.alert.alert-block.alert-danger {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.form-text.text-muted ul {
+  padding-top: 10px;
+}
+.form-text.text-muted li {
+  padding-bottom: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+#hint_id_password2 {
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+}

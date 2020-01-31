@@ -2,21 +2,26 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border bottom mb-4">Join Today</legend>
-            {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Sing Up</button>
+    <div class="wrapper">
+         <div class="content-section">
+            <form class="aut" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="h1">Join Today</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn" type="submit">Sing Up</button>
+                </div>
+            </form>
+            <div class="end">
+                <small class="form-align">
+                    <span class="need">Already Have An Account?</span>
+                    <div class="sign">
+                         <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                    </div>
+                </small>
+            </div>
         </div>
-    </form>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
-        </small>
     </div>
-</div>
 {% endblock content %}

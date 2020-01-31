@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-<h1>Search Results</h1>
-
-
-<a href="{% url 'city_weather_class_based' city %}">{{ city }}</a>
+    <div class="wrapper">
+        <h1 class="h1">Search Results</h1>
+        <div class="city">
+            <a class="a" href="{% url 'city_weather_class_based' city %}">{{ city }}</a>
+        </div>
+    </div>
 {% endblock content %}

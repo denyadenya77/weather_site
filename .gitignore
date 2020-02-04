@@ -7,3 +7,9 @@ weather/__pycache__/*
 weather/migrations/__pycache__/*
 weather_site/__pycache__/*
 
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+.env

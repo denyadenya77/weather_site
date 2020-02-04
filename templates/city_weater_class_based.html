@@ -3,8 +3,10 @@
 {% block content %}
     <div class="wrapper">
         {% if not error %}
-            <h1 class="h1">City weather</h1>
-            <h2 class="h2">City name: {{ city }}</h2>
+            <div class="cl">
+                <h2 class="h2">{{ city }}</h2>
+            </div>
+
 
             {% if user.is_authenticated %}
                 {% if city_in_favourites  %}

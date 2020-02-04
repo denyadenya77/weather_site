@@ -2,9 +2,11 @@
 
 {% block content %}
     <div class="wrapper">
-        <h2 class="h2">You have been logged out.</h2>
-        <div class="out">
-            <a class="best_a" href="{% url 'login' %}">Log In Again</a>
+        <div class="aut aut_big">
+            <h2 class="h1">You have been logged out.</h2>
+            <div class="out">
+                <a class="best_a" href="{% url 'login' %}">Log In Again</a>
+            </div>
         </div>
     </div>
 {% endblock content %}

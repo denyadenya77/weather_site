@@ -7,3 +7,6 @@ weather/__pycache__/*
 weather/migrations/__pycache__/*
 weather_site/__pycache__/*
 
+weather/migrations/*
+weather_site/.mypy_cache/*
+

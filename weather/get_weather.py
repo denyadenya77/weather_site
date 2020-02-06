@@ -63,10 +63,8 @@ class Weather:
         weather_ready = []
 
         for day in five_days_list[1:]:
-
             date = day["dt_txt"][8:10]
             time = day["dt_txt"][11:13]
-
             if time == "12" and date != dt_string:
                 day["dt_txt"] = day["dt_txt"][:10]
                 weather_ready.append(day)

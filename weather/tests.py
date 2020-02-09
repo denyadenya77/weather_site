@@ -5,6 +5,7 @@ from django.test import TestCase, Client
 from django.test import SimpleTestCase
 from django.urls import reverse
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 from . import views
 
@@ -64,7 +65,11 @@ class TestFullCityWeatherDetailView(StaticLiveServerTestCase):
             os.path.dirname(os.path.dirname(__file__)),
             'geckodriver'
         )
-        cls.selenium = webdriver.Firefox(executable_path=geckodriver_path)
+
+        options = Options()
+        options.headless = True
+
+        cls.selenium = webdriver.Firefox(options=options, executable_path=geckodriver_path)
         cls.selenium.implicitly_wait(10)
 
     @classmethod

@@ -12,3 +12,6 @@ weather_site/.mypy_cache/*
 
 weather_site/.env
 
+db.sqlite3
+geckodriver.log
+
